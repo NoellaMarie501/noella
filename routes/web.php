@@ -18,4 +18,11 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-Route::resource('companies', CompanyController::class);
+Route::get('/companies', [CompanyController::class, "index"])->name("companies.index");
+Route::get('/company', [CompanyController::class, "create"])->name("companies.create");
+Route::post('/new/company', [CompanyController::class, "store"])->name("companies.store");
+Route::get('/company/{company}', [CompanyController::class, "edit"])->name("companies.edit");
+Route::put('/company/{company}/update', [CompanyController::class, "update"])->name("companies.update");
+Route::delete('/company/{company}/delete', [CompanyController::class, "destroy"])->name("companies.destroy");
+
+//Route::resource('companies', CompanyController::class);

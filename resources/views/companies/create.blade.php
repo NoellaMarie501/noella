@@ -15,14 +15,14 @@
                     <h2>Add Company</h2>
                 </div>
                 <div class="pull-right">
-                    <a class="btn btn-primary" href="{{ route('companies.index') }}"> Back</a>
+                    <a class="btn btn-primary" href="#"> Back</a>
                 </div>
             </div>
         </div>
-        @if(session('status'))
-        <div class="alert alert-success mb-1 mt-1">
-            {{ session('status') }}
-        </div>
+        @if (session('status'))
+            <div class="alert alert-success mb-1 mt-1">
+                {{ session('status') }}
+            </div>
         @endif
         <form action="{{ route('companies.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
@@ -32,7 +32,7 @@
                         <strong>Company Name:</strong>
                         <input type="text" name="name" class="form-control" placeholder="Company Name">
                         @error('name')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -41,7 +41,7 @@
                         <strong>Company Email:</strong>
                         <input type="email" name="email" class="form-control" placeholder="Company Email">
                         @error('email')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>
@@ -50,7 +50,7 @@
                         <strong>Company Address:</strong>
                         <input type="text" name="address" class="form-control" placeholder="Company Address">
                         @error('address')
-                        <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
+                            <div class="alert alert-danger mt-1 mb-1">{{ $message }}</div>
                         @enderror
                     </div>
                 </div>

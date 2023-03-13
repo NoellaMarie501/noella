@@ -1,10 +1,12 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <title>Laravel 9 CRUD Tutorial Example</title>
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" >
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
 </head>
+
 <body>
     <div class="container mt-2">
         <div class="row">
@@ -13,7 +15,7 @@
                     <h2>Laravel 9 CRUD Example Tutorial</h2>
                 </div>
                 <div class="pull-right mb-2">
-                    <a class="btn btn-success" href="{{ route('companies.create') }}"> Create Company</a>
+                    <a class="btn btn-success" href="#"> Create Company</a>
                 </div>
             </div>
         </div>
@@ -39,19 +41,19 @@
                         <td>{{ $company->name }}</td>
                         <td>{{ $company->email }}</td>
                         <td>{{ $company->address }}</td>
-                        <td>
-                            <form action="{{ route('companies.destroy',$company->id) }}" method="Post">
-                                <a class="btn btn-primary" href="{{ route('companies.edit',$company->id) }}">Edit</a>
+                        <td class="d-flex">
+                            <a class="btn btn-primary mx-3" href="{{ route('companies.edit', $company->id) }}">Edit</a>
+                            <form action="{{ route('companies.destroy', $company->id) }}" method="Post">
                                 @csrf
                                 @method('DELETE')
-                                <button type="submit" class="btn btn-danger">Delete</button>
+                                <button type="submit" class="btn btn-danger mx-3">Delete</button>
                             </form>
                         </td>
                     </tr>
-                    @endforeach
+                @endforeach
             </tbody>
         </table>
-        {!! $companies->links() !!}
     </div>
 </body>
+
 </html>
